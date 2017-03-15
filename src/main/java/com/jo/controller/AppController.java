@@ -32,7 +32,7 @@ public class AppController {
 	@Resource
 	private AppService appService;
 	
-	@RequestMapping(value = "/init", method = RequestMethod.GET)
+	@RequestMapping(value = "/init")
 	@ResponseBody
 	public ResultInfo initAppInfo(ModelMap model) {
 		ResultInfo result = new ResultInfo();
@@ -47,8 +47,13 @@ public class AppController {
 
 	}
 	
-	@RequestMapping(value = "/appRankList", method = RequestMethod.GET)
+	@RequestMapping(value = "/appRankList")
 	public String redictRankListPage(){
+		return "appRankList";
+	}
+	
+	@RequestMapping(value = "/app/appRankList")
+	public String redictRankListPage1(){
 		return "appRankList";
 	}
 }
