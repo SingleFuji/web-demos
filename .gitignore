@@ -1,0 +1,13 @@
+.project
+.classpath
+.springBeans
+.settings/
+target/
+
+
+#OS Stuff
+.DS_Store
+
+#IntelliJ Stuff
+.idea
+*.iml
