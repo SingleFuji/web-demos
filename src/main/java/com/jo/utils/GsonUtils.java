@@ -33,8 +33,4 @@ public class GsonUtils {
 		return gson.fromJson(json, typeOfT);
 	}
 	
-//	public static<T> T fromJsonNull(String json, Class<T> classOfT){
-//		return gsonNull.fromJson(json, classOfT);
-//	}
-	
 }
