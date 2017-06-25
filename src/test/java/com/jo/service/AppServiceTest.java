@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.jo.exception.JoException;
+import com.jo.utils.CommonUtils;
 
 public class AppServiceTest {
 
@@ -15,8 +16,11 @@ public class AppServiceTest {
 	
 	@Before
 	public void setUp() throws Exception {
+		
+		System.out.println(CommonUtils.getClassPath());
 		context = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
 		appService = (AppService) context.getBean("appService");
+		
 	}
 
 	@After

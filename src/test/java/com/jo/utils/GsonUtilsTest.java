@@ -1,11 +1,11 @@
 package com.jo.utils;
 
-import static org.junit.Assert.*;
-
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.junit.After;
@@ -13,10 +13,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.jo.po.App;
 import com.jo.po.Result;
 import com.jo.po.User;
 
@@ -29,6 +29,10 @@ public class GsonUtilsTest {
 	//
 	private User user = new User();
 
+	private App app = new App();
+	
+	private List<App> appList = new ArrayList<App>();
+	
 	private Result<User> result = new Result<User>();
 
 	private String srcUserStr = "{\"id\":\"6a46c490-90fa-4012-bbfe-41477432f440\",\"age\":0,\"address\":\"PRC\",\"passportNo\":\"00001\"}";
@@ -39,9 +43,15 @@ public class GsonUtilsTest {
 
 	@Before
 	public void setUp() throws Exception {
+		app.setDownloadTimes(5);
+		app.setName("ZoneApp");
+		appList.add(app);
+		
+		
 		user.setAddress("PRC1");
 		user.setId(UUID.randomUUID().toString());
 		user.setPassportNo("00002");
+		user.setAppList(appList);
 
 		result.setCode(0);
 		result.setMessage("test msg");

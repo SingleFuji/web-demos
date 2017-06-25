@@ -16,8 +16,8 @@
 		http://www.springframework.org/schema/aop 
 		http://www.springframework.org/schema/aop/spring-aop.xsd
         ">
-	<context:property-placeholder location="classpath:config/redis.properties" />
-
+	<!-- <context:property-placeholder location="classpath:config/redis.properties" 
+		/> -->
 	<context:component-scan base-package="com.jo.redis" />
 
 
@@ -36,14 +36,27 @@
 
 	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
 		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="keySerializer">
+			<bean
+				class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+		</property>
+		<property name="valueSerializer">
+			<bean
+				class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+		</property>
+		<property name="hashKeySerializer">
+			<bean
+				class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+		</property>
+		<property name="hashValueSerializer">
+			<bean
+				class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+		</property>
 	</bean>
 
-	<!-- <bean id="redisHashMapStringService" class="com.jo.redis.impl.RedisStringHashMapServiceImpl">
-		<property name="redisTemplate" ref="redisTemplate"/>
-	</bean>
-	
-	<bean id="redisStringOpsValService" class="com.jo.redis.impl.RedisStringOpsValServiceImpl">
-		<property name="redisTemplate" ref="redisTemplate"/>
-	</bean> -->
-	
+	<!-- <bean id="redisHashMapStringService" class="com.jo.redis.impl.RedisStringHashMapServiceImpl"> 
+		<property name="redisTemplate" ref="redisTemplate"/> </bean> <bean id="redisStringOpsValService" 
+		class="com.jo.redis.impl.RedisStringOpsValServiceImpl"> <property name="redisTemplate" 
+		ref="redisTemplate"/> </bean> -->
+
 </beans>

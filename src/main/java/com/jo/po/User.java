@@ -1,6 +1,7 @@
 package com.jo.po;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
@@ -33,6 +34,11 @@ public class User implements Serializable{
 	private String address;
 	
 	private String birthday;
+	
+	/**
+	 * 
+	 */
+	private List<App> appList; 
 	
 	@SerializedName(value="passportNo", alternate={"passport_no"})
 	private String passportNo;
@@ -101,6 +107,14 @@ public class User implements Serializable{
 		this.passportNo = passportNo;
 	}
 	
+	public List<App> getAppList() {
+		return appList;
+	}
+
+	public void setAppList(List<App> appList) {
+		this.appList = appList;
+	}
+
 	@Override
 	public String toString(){
 		return ToStringBuilder.reflectionToString(this);
