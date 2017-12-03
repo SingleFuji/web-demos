@@ -36,7 +36,7 @@ public class RandomUtilsTest {
 	public void testRandomDouble() {
 
 		for(int i=0;i<30;i++){
-			System.out.println(RandomUtils.randomDouble(100));
+			System.out.println(RandomUtils.randomDouble(1));
 		}
 	}
 	

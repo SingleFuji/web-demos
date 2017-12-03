@@ -44,8 +44,13 @@ public class JoUserServiceTest extends AbstractJUnit4SpringContextTests{
 	
 	@Test
 	public void testGetUserByUsername(){
-		JoUser u = joUserService.getUserByUsername("jj");
-		System.out.println(u.toString());
+		try{
+			JoUser u = joUserService.getUserByUsername("jj");
+			System.out.println(u.toString());
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
 	}
 
 }
